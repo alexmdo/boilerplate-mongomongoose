@@ -48,12 +48,15 @@ const findOneByFood = (food, done) => {
     favoriteFoods: food
   }, (err, data) => {
     if (err) return console.error(err);
-    done(null, data)
+    done(null, data);
   });
 };
 
 const findPersonById = (personId, done) => {
-  done(null /*, data*/);
+  Person.findById(personId, (err, person) => {
+    if (err) return console.error(err);
+    done(null, person);
+  });
 };
 
 const findEditThenSave = (personId, done) => {
